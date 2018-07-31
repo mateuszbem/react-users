@@ -84,7 +84,8 @@ class App extends Component {
   clearFields = () => {
     this.setState({
       user: '',
-      email: ''
+      email: '',
+      validated: null
     })
   }
   sortTable = (data) => {
