@@ -3,18 +3,20 @@ import './Table.css';
 
 class Table extends Component{
   constructor(props){
-    super(props);
+    super(props)
+    this.state = {
+      sorted: this.props.sorted
+    }
   }
   render(){
     const users = this.props.users;
-    console.log(users)
       return(
           <table className="table table-striped">
             <thead>
               <tr>
-                <th scope="col">LP</th>
-                <th scope="col">USER</th>
-                <th scope="col">E-MAIL</th>
+                <th onClick={()=>this.props.sort('id')} scope="col"><i className="fas fa-sort-up p-2"></i>LP</th>
+                <th onClick={()=>this.props.sort('user')} scope="col">USER</th>
+                <th onClick={()=>this.props.sort('email')} scope="col">E-MAIL</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -26,7 +28,7 @@ class Table extends Component{
                   <td>{user.email}</td>
                   <td><i onClick={()=>this.props.delete(user.firebaseID)} className="fas fa-times"></i></td>
                 </tr>)
-              }):<tbody><div className="loader mt-5 ml-5"></div></tbody>
+              }):<tr><td className="ml-4"colSpan="4">No users.</td></tr>
               }
             </tbody>
           </table>
