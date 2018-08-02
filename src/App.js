@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
 import './App.css';
-import Table from './components/Table';
+import {Table} from './components/Table';
 import _ from 'lodash';
 
-class App extends Component {
+export class App extends Component {
   constructor(){
     super();
     this.state = {
@@ -68,7 +68,7 @@ class App extends Component {
       }
     }
     else{
-      this.setState({ validated: "Input's can't be blank."})
+      this.setState({ validated: "Input can't be blank."})
     }
   }
   deleteUser = (user) => {
@@ -132,5 +132,3 @@ class App extends Component {
     )
   }
 }
-
-export default App;
